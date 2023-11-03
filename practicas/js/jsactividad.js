@@ -65,7 +65,7 @@ var miTemperatura = 36;
 
         console.log(numeros);
 
-//ACTIVIDAD JS - 20/10
+//ACTIVIDAD JS - fecha 20/10
 
     //1.
         var nro = 10;
@@ -119,19 +119,19 @@ var miTemperatura = 36;
         }
 
 
-//ACTIVIDAD 2
+//ACTIVIDAD 2 - fecha 3/11
 
     //1. Activador de frases
 
-    function generadorfrase(){ //esta función crea un array con posibles frases
-        var frases = ["Esto está mal pero no tan mal", "Hoy es viernes y tu cuerpo lo sabe", "Lo que importa es la actitud", "Necesito café"];
-        var randomIndex = Math.floor(Math.random() * frases.length);
-        var randomFrase = frases[randomIndex];
+    function generadorfrase(){ //esta función crea un array con varias frases como elementos, que se muestran en el HTML con el ID 'frase'
+        var frases = ["Esto está mal pero no tan mal", "Hoy es viernes y tu cuerpo lo sabe", "Lo que importa es la actitud", "Necesito café"]; //este es el array que almacena las frases
+        var randomIndex = Math.floor(Math.random() * frases.length); //ínidice aleatorio dentro de la long del array. Math.random() se usa para tener un nro decimal aleatorio entre 0y1 y se multiplica x cant de frases. Math.floor() redondea el resultado al nro entero más cercano y válido para el array
+        var randomFrase = frases[randomIndex]; //acá se obtiene una frase aleatoria del array 'frases' usando el índice anterior y se almacena en la variable 'randomFrase'
 
-        document.getElementById('frase').innerHTML = randomFrase;
+        document.getElementById('frase').innerHTML = randomFrase; //accede al <p> con el id 'frase'. Se escribe randomFrase para establecer el cont interno.
     }
 
-    document.getElementById('fraseBtn').addEventListener('click', generadorfrase);
+    document.getElementById('fraseBtn').addEventListener('click', generadorfrase); //accede al <button> con el id fraseBtn. .addEventListener() para "escuchar" el click. Tiene dos argumentos: click y la función generadorfrase para que se ejecute en ese orden.
 
     //2. Cambiar texto en un Div
 
@@ -145,59 +145,59 @@ var miTemperatura = 36;
 
     //3. Generador de números aleatorios
 
-    function generarNro() {
-        var randomNro = Math.floor(Math.random() * 100) + 1;
-        document.getElementById('randomNro').innerHTML = randomNro;
+    function generarNro() { //funciòn que genera un nro random del 1 al 100 en un <div> con el id randomNro
+        var randomNro = Math.floor(Math.random() * 100) + 1; //math.random() devuelve un nro decimal aleatorio entre 0y1 y dps *100 para tener un nro entre 0 y 99.99. Math.floor() redondea para abajo ese resultado y se suma 1 para tener un nro entero
+        document.getElementById('randomNro').innerHTML = randomNro; 
     }
 
     //4. Lista de Tareas (la tarea se borra con doble click)
 
-    function addTask() {
-        const taskInput = document.getElementById('taskInput');
-        const taskList = document.getElementById('taskList');
-        const task = taskInput.value.trim();
+    function addTask() { // función q permite agregar tareas a una lista y dentro de esta función se declaran 3 constantes. 
+        const taskInput = document.getElementById('taskInput'); //sirve para obtener el valor del campo donde el usuario ingresa la tarea
+        const taskList = document.getElementById('taskList'); //lista donde se van a mostrar las tareas agregadas
+        const task = taskInput.value.trim(); //almacena el valor del campo 'taskInput' y se eliminan los espacios con 'trim'
 
-        if (task) {
-            const li = document.createElement('li');
-            li.innerText = task;
-            li.addEventListener('click', () => {
+        if (task) { //se verifica si esta variable tiene algún valor ingresado que no sean espacios en blanco.
+            const li = document.createElement('li'); //si 'task' tiene un valor, se crea un elemento 'li' usando esto: document.createElement('li')
+            li.innerText = task; //acá se establece el contenido de texto del elemento 'li' en el valor de la tarea ingresada 'task'
+            li.addEventListener('click', () => { //esto podría servir como evento de click cuando el usuario hace click al elemento 'li' y con el completed para marcar o desmarcar la tarea como completada. 
                 li.classList.toggle('completed');
             });
-            li.addEventListener('dblclick', () => {
+            li.addEventListener('dblclick', () => { //acá se agrega un evento de doble click al elemento 'li' para eliminar la tarea
                 taskList.removeChild(li);
             });
-            taskList.appendChild(li);
-            taskInput.value = '';
+            taskList.appendChild(li); //acá la tarea ingresada (li) se agrega como un hijo al 'taskList', mostrando la tarea en la lista. 
+            taskInput.value = ''; // el campo de entrada se restablecerse para poder ingresar una nueva tarea
         }
     }
 
     //5. Cambiar el Color de Fondo
 
-    function cambiarColorFondo() {
-        const randomColor = 'rgb(' + Math.floor(Math.random() * 256) + ',' +
+    function cambiarColorFondo() { //dentro de esta función se genera un color aleatorio en formato RGB y para esto es necesario 3 Math.floor que generen valores entre 0 y 255 para cada componente (rojo, verde y azul)
+        const randomColor = 'rgb(' + Math.floor(Math.random() * 256) + ',' + 
                                     Math.floor(Math.random() * 256) + ',' +
                                     Math.floor(Math.random() * 256) + ')';
-        document.body.style.backgroundColor = randomColor;
+        document.body.style.backgroundColor = randomColor; //acá se selecciona todo el cuerpo de la página con 'body' y se establece el estilo con backgroundColor igual a un color aleatorio definido antes
     }
 
 
     //6. Alternar la Visibilidad
 
-    function toggleVisibilidad() {
-        const title = document.getElementById('title');
-        title.classList.toggle('hidden');
+    function toggleVisibilidad() { //esta función se activa haciendo click en el <button>
+        const title = document.getElementById('title'); //hacemos referencia al elemento <h2> con el id 'title' para alternar su visibilidad
+        title.classList.toggle('hidden'); //con la clase 'hidden' se añade o quita el elemento <h2>. en CSS se puso una propiedad para que cuando hidden esté presente se aplique display:none
     }
 
 
-    //7. Calculadora Simple
+    //7. Calculadora Simple 
 
-    document.getElementById('calcular').addEventListener('click', function() {
-        const number1 = parseFloat(document.getElementById('number1').value);
-        const number2 = parseFloat(document.getElementById('number2').value);
-        const operator = document.getElementById('calculo').value;
+    document.getElementById('calcular').addEventListener('click', function() { //selecciona el id 'calcular' y se agrega un click. Cuando el usuario haga click, sigue con el segundo argumento (function)
+        const number1 = parseFloat(document.getElementById('number1').value); //acá se obtiene el valor del primer nro. Con parseFloat los nros se convierten en nros flotantes y nos aseguramos que se hagan cálculos matemáticos. 
+        const number2 = parseFloat(document.getElementById('number2').value); //acá se obtiene el valor del segundo nro
+        const operator = document.getElementById('calculo').value; //acá el tipo de operación. 
         let result;
     
-        switch (operator) {
+        switch (operator) { //estructura switch para realizar el cálculo correspondiente a los valores seleccionados por el usuario. Los resultados se almcacenan en la variable 'result'.
             case '+':
                 result = number1 + number2;
                 break;
@@ -211,37 +211,37 @@ var miTemperatura = 36;
                 result = number1 / number2;
                 break;
             default:
-                console.log('Invalid operator');
+                console.log('Invalid operator'); //si la operación no es válida, se va a mostrar un mje de error en la consola y se frena la ejecución de la función con 'return'
                 return;
         }
     
-        document.getElementById('result').textContent = `Result: ${result}`;
+        document.getElementById('result').textContent = `Result: ${result}`; //el resultado del cálculo se muestra en el <div> con el id 'result' 
     });
 
 
     //8. Generador de Contraseñas
 
     function generarPssw() {
-        const length = document.getElementById('length').value;
-        const charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyz0123456789!@#$%^&*()_+<>?';
-        let password = '';
+        const length = document.getElementById('length').value; //este valor representa la longitud de la contraseña que el usuario quiere generar
+        const charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyz0123456789!@#$%^&*()_+<>?'; //cadena con todos los caracteres posibles que se pueden usar dentro de una contrseña
+        let password = ''; //se usa para construir la contraseña aleatoria
     
-        for (let i = 0; i < length; i++) {
-            const randomIndex = Math.floor(Math.random() * charset.length);
+        for (let i = 0; i < length; i++) { //bucle for para generar la contraseña aleatoria. Va a ir desde 0 hasta la long deseada. 
+            const randomIndex = Math.floor(Math.random() * charset.length); //va a ir eligiendo un caracter aleatorio del 'charset' con el 'randomIndex' y ese caracter se agrega a 'password' y asì sucesivamente hasta que se complete la long deseada de contraseña
             password += charset[randomIndex];
         }
     
-        document.getElementById('password').textContent = `Generar contraseña: ${password}`;
+        document.getElementById('password').textContent = `Generar contraseña: ${password}`; //el resultado se va a ver en el <div> con el id 'password' Se muestra el resultado en formato de cadena que incluye tmb el texto 'generar contraseña' y dps la contraseña creada
     }
 
 
     //9. Contador de Clics
 
-    document.getElementById('clickButton').addEventListener('click', function() {
-    var counter = document.getElementById('counter');
-    var currentCount = parseInt(counter.textContent);
-    if (isNaN(currentCount)) {
+    document.getElementById('clickButton').addEventListener('click', function() { //selecciona el elemento con el id 'clickButton' y agrega un evento de click para que se ejecute la funcion
+    var counter = document.getElementById('counter'); // el <div> con el id 'counter' representa el contador que se va a mostrar en la página
+    var currentCount = parseInt(counter.textContent); //el texto de 'counter' se convierte en un nro entero con parseInt y se almacena en la variable currentCount
+    if (isNaN(currentCount)) {  //acá se verifica si no es un nro válido, Si no lo es, se estrablece 0 como valor predeterminado. 
         currentCount = 0;
     }
-    counter.textContent = currentCount + 1;
+    counter.textContent = currentCount + 1; //se incrementa el valor de currentCount en 1 y muestra el contador actualizado en la pág. 
 });
