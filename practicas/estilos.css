@@ -60,3 +60,12 @@
     height: 100px;
     background-color: darkcyan;
 }
+
+
+#actividad {
+    margin-top: 50px;
+}
+
+.hidden {
+    display: none;
+}
