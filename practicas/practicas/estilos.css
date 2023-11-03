@@ -1,0 +1,71 @@
+
+#compas {
+    background-color:darkmagenta;
+}
+
+#mod_compas {
+    height: 100px;
+    margin-bottom: 150px;
+}
+
+.frecia {
+    background-color: darkseagreen;
+
+}
+
+.leila {
+    background-color: rgb(73, 158, 73);
+
+}
+
+.majo {
+    background-color: rgb(7, 141, 7);
+}
+
+.animacion1 {
+    width: 500px;
+    height: 200px;
+    background-color: crimson;
+    transition: background-color;
+    transition-duration: 2s;
+}
+
+.animacion1:hover {
+    background-color: darkcyan;
+}
+
+.animacion2 {
+    width: 500px;
+    height: 200px;
+    background-color: pink;
+    transition: width, height;
+    transition-duration: 2s;
+}
+
+.animacion2:hover {
+    width: 300px;
+    height: 100px;
+}
+
+.animacion3 {
+    width: 500px;
+    height: 200px;
+    background-color: crimson;
+    transition: background-color, width;
+    transition-duration: 2s;
+}
+
+.animacion3:hover {
+    width: 300px;
+    height: 100px;
+    background-color: darkcyan;
+}
+
+
+#actividad {
+    margin-top: 50px;
+}
+
+.hidden {
+    display: none;
+}
