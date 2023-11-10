@@ -60,3 +60,18 @@
     height: 100px;
     background-color: darkcyan;
 }
+
+
+#actividad {
+    margin: 50px;
+    background-color:chocolate;
+    border-radius: 10px;
+}
+
+.container {
+    padding: 30px;
+}
+
+.hidden {
+    display: none;
+}
